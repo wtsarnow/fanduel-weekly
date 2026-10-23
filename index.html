@@ -3,11 +3,27 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script></head>
 <body><header><div class="brand"><span class="logo">FD</span><div><h1>FanDuel Weekly</h1><p class="sub">Week-by-week analysis from the bot suite · <span id="upd"></span></p></div></div>
 <div id="status" class="pill"></div></header>
-<main><section class="kpis" id="kpis"></section>
+<nav class="tabs"><button data-t="dash" class="on">Dashboard</button><button data-t="weeks">Weeks</button><button data-t="ana">Analytics</button></nav>
+<main><div class="tab" id="t-dash"><section class="kpis" id="kpis"></section>
 <section class="grid2"><div class="card"><h2>Percentile by contest</h2><canvas id="pctChart"></canvas><p class="note">Dashed line = BEAT_80 bar (80%). Hollow points are estimates.</p></div>
 <div class="card"><h2>Cumulative fees vs winnings</h2><canvas id="moneyChart"></canvas><p class="note">Only entries with a known fee are counted.</p></div></section>
+<section class="card"><h2>Tournament-type analytics</h2><div class="ctl"><label>Group by <select id="ttGroup"><option value="fmt">Format (Showdown / Classic)</option><option value="fieldT">Field size</option><option value="brand">Contest brand</option><option value="feeT">Fee tier</option><option value="slate">Slate</option></select></label></div>
+<div class="grid2"><div><canvas id="ttChart"></canvas></div><div class="tw"><table id="ttTable"></table></div></div><p class="note">ROI = (winnings − fees) ÷ fees, only entries with a known fee and result. Mocks count toward actual. Small sample: every group has only a few entries.</p></section>
 <section class="card"><h2>Auto-tune timeline</h2><div id="timeline" class="timeline"></div></section>
-<section class="card"><h2>Weeks archive</h2><div id="weeks" class="weeks"></div></section>
-<section class="card" id="detail"></section></main>
+</div><div class="tab" id="t-weeks" hidden><section class="card"><h2>Weeks archive</h2><div id="weeks" class="weeks"></div></section>
+<section class="card" id="detail"></section></div>
+<div class="tab" id="t-ana" hidden>
+<section class="kpis" id="aKpis"></section>
+<section class="card"><h2>Top patterns found</h2><div id="patterns"></div><p class="warn">⚠ Small sample: Weeks 3–7 of one season. Correlation is not causation, and Wikipedia views mostly track how famous and how big a role a player has.</p></section>
+<section class="grid2"><div class="card"><h2>Signal correlation heatmap</h2><div class="tw" id="heat"></div><p class="note">Spearman rank correlation. Green = more of the signal goes with more points. n = sample size.</p></div>
+<div class="card"><h2>Bucket comparisons (avg FD pts)</h2><canvas id="bkChart"></canvas><div id="bkList" class="note"></div></div></section>
+<section class="card"><h2>Per-game view</h2><div class="ctl"><select id="gSel"></select></div><div id="gView"></div></section>
+<section class="card"><h2>Raw data: our entries</h2><div class="ctl"><select id="eWeek"><option value="">All weeks</option></select><button class="btn" id="eCsv">Download CSV</button></div><div class="tw"><table id="eTable" class="sort"></table></div></section>
+<section class="card"><h2>Raw data: every player, every game</h2><div class="ctl">
+<select id="pWeek"><option value="">All weeks</option></select><select id="pGame"><option value="">All games</option></select><select id="pPos"><option value="">All positions</option></select>
+<label><input type="checkbox" id="pSal"> FD-salaried only</label><label><input type="checkbox" id="pOurs"> In our lineups</label><input id="pQ" placeholder="Search player/team"><button class="btn" id="pCsv">Download CSV</button></div>
+<p class="note" id="pCount"></p><div class="tw tall"><table id="pTable" class="sort"></table></div></section>
+<section class="card"><h2>Data coverage</h2><div id="cov"></div></section>
+</div></main>
 <footer>Real results only. <span class="est">est.</span> = estimated · <span class="pend">pending</span> = not graded yet.</footer>
-<script src="app.js"></script></body></html>
+<script src="app.js"></script><script src="analytics.js"></script></body></html>

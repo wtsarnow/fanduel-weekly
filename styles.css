@@ -17,3 +17,17 @@ table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{padding:8px 6px
 .tw{overflow-x:auto}.bar{height:6px;background:#22304f;border-radius:4px;min-width:60px}.bar i{display:block;height:100%;border-radius:4px;background:var(--blue)}
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}.box{background:#0d1426;border-radius:10px;padding:12px}.box h4{margin:0 0 6px;font-size:13px;color:var(--mut);text-transform:uppercase}.box ul{margin:0;padding-left:18px}
 .note{color:var(--mut);font-size:12px}footer{text-align:center;color:var(--mut);font-size:12px;padding:20px}
+
+.tabs{display:flex;gap:6px;padding:0 20px;max-width:1200px;margin:0 auto 6px;position:sticky;top:0;z-index:5;background:inherit}
+.tabs button{flex:1;max-width:180px;background:#111a2e;color:#8a98bd;border:1px solid #22304f;border-radius:10px;padding:10px;font-weight:600;cursor:pointer}
+.tabs button.on{background:#1493ff;color:#fff;border-color:#1493ff}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.ctl select,.ctl input:not([type=checkbox]){background:#0b1222;color:#e6ecff;border:1px solid #22304f;border-radius:8px;padding:7px 9px}
+.btn{background:#22d39a;color:#04130d;border:0;border-radius:8px;padding:8px 12px;font-weight:700;cursor:pointer}
+table.sort th{cursor:pointer;white-space:nowrap}table.sort th:after{content:" ↕";opacity:.35}
+.tall{max-height:560px;overflow:auto}.tall th{position:sticky;top:0;background:#111a2e}
+td.na{color:#56627f}.warn{color:#ffb547;font-size:.88rem}
+.heat td{text-align:center;font-variant-numeric:tabular-nums;min-width:64px}.heat small{display:block;opacity:.6;font-size:.7rem}
+.pat{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #22304f}.pat b{color:#22d39a}.pat.neg b{color:#ff5c7a}
+@media(max-width:700px){.tabs{padding:0 10px}.ctl>*{flex:1 1 45%}table{font-size:.8rem}}
+.tab{display:grid;gap:16px}[hidden]{display:none!important}.tabs{background:#0a1224ee;padding-top:8px;padding-bottom:8px}
