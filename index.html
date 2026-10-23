@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FanDuel Weekly</title><link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script></head>
+<body><header><div class="brand"><span class="logo">FD</span><div><h1>FanDuel Weekly</h1><p class="sub">Week-by-week analysis from the bot suite · <span id="upd"></span></p></div></div>
+<div id="status" class="pill"></div></header>
+<main><section class="kpis" id="kpis"></section>
+<section class="grid2"><div class="card"><h2>Percentile by contest</h2><canvas id="pctChart"></canvas><p class="note">Dashed line = BEAT_80 bar (80%). Hollow points are estimates.</p></div>
+<div class="card"><h2>Cumulative fees vs winnings</h2><canvas id="moneyChart"></canvas><p class="note">Only entries with a known fee are counted.</p></div></section>
+<section class="card"><h2>Auto-tune timeline</h2><div id="timeline" class="timeline"></div></section>
+<section class="card"><h2>Weeks archive</h2><div id="weeks" class="weeks"></div></section>
+<section class="card" id="detail"></section></main>
+<footer>Real results only. <span class="est">est.</span> = estimated · <span class="pend">pending</span> = not graded yet.</footer>
+<script src="app.js"></script></body></html>
